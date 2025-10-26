@@ -22,3 +22,18 @@ class Solution:
 = 0 ^ 0 ^ 0 ^ 2
 = 2
 """
+
+# Brute Force
+# Time Complexity : O(n^2)
+class Solution:
+    def missingNumber(self, nums):
+        n = len(nums)
+        
+        for i in range(n + 1):  # check numbers from 0 to n
+            found = False
+            for j in range(n):  # search for i in array
+                if nums[j] == i:
+                    found = True
+                    break
+            if not found:
+                return i
