@@ -37,3 +37,14 @@ class Solution:
                     break
             if not found:
                 return i
+
+
+# Hashing Method
+class Solution:
+    def missingNumber(self, nums):
+        n = len(nums)
+        num_set = set(nums)   # store all elements for O(1) lookups
+        
+        for i in range(n + 1):  # check all numbers from 0 to n
+            if i not in num_set:
+                return i
