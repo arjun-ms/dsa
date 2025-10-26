@@ -48,3 +48,13 @@ class Solution:
         for i in range(n + 1):  # check all numbers from 0 to n
             if i not in num_set:
                 return i
+
+
+# Time Complexity = O(n)
+# Space Complexity = O(1)
+class Solution:
+    def missingNumber(self, nums):
+        n = len(nums)
+        sum_expected = n * (n + 1) // 2
+        sum_actual = sum(nums)
+        return sum_expected - sum_actual
