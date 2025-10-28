@@ -5,6 +5,7 @@ class Solution:
 
         while low<=high:
             mid = (low+high)//2
+            # mid = low + (high - low) // 2 (to prevent overflow errors in other languages)
 
             # check middle element
             if k == nums[mid]:
