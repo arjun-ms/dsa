@@ -1,3 +1,39 @@
+# Efficient
+
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        # min-heap
+        heap = []
+        
+        # push first node of each list
+        for head in lists:
+            if head:
+                heapq.heappush(heap, (head.val, id(head), head))
+        
+        dummy = ListNode()
+        tail = dummy
+
+        # extract smallest, push its next
+        while heap:
+            value, id_, node = heapq.heappop(heap)
+            tail.next = node
+            tail = tail.next
+
+            if node.next:
+                heapq.heappush(heap, (node.next.val, id(node.next), node.next))
+
+        return dummy.next
+
+
+
+
+#################################################################################################
+#################################################################################################
+
+
+
+
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
